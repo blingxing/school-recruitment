@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>清除浮动</title>
+    <style>
+        .topDiv {
+            width: 500px;
+            border: 2px solid black;
+            /* 清除浮动四 */
+            /* overflow: hidden; */
+
+        }
+
+        .floatDiv {
+            width: 100px;
+            height: 100px;
+            border: 2px dotted red;
+            color: red;
+            margin: 4px;
+            float: left;
+        }
+
+        .bottomDiv {
+            width: 500px;
+            height: 100px;
+            margin: 5px 0;
+            border: 2px dotted black;
+        }
+
+        .textDiv {
+            color: blue;
+            border: 2px solid blue;
+            /* clear: both;  清除浮动二 */
+        }
+        /* 清除浮动一 */
+        /* .clear{
+            clear:both;
+        } */
+
+        /* 清除浮动三 */
+        /* .clearfix:after{
+            content: '.';
+            height: 0;
+            display: block;
+            clear: both;
+        }*/
+        /* :after选择符IE 6不支持 */
+        /*.clearfix{
+            zoom:1; 兼容IE: 6
+        }
+         */
+    </style>
+</head>
+
+<body>
+    <div class="topDiv clearfix">
+        <div class="floatDiv">float left</div>
+        <div class="textDiv">地方是非得失发呆发呆舒服的方反反复复反反复复反反复复反反复复反反复复反反复复反反复复反反复复</div>
+        <!-- 清除浮动一 -->
+        <!-- <div class="clear"></div> -->
+    </div>
+    <div class="bottomDiv">地方是非得失发呆发呆舒服的方法反反复复反反复复反反复复反反复复反反复复反反复复反反复复反反复复反反复复反反复复反反复复反反复复反反复复反反复复反反复复</div>
+</body>
+
+</html>
