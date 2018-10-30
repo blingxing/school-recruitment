@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>过渡transition</title>
+    <style>
+        .anim_transition {
+            width: 100px;
+            height: 70px;
+            background-color: green;
+            text-align: center;
+            color: white;
+            border-radius: 5px;
+            /* property 时间 过度方式 延时时长 *//*css属性名称 总时间 运动曲线 何时开始*/
+            transition: all 2s linear 2s;
+        }
+
+
+
+        /* 这种效果可以在鼠标单击、点击、获得焦点、或对元素任何改变中触发，并以动画效果改变CSS属性值。 */
+        .anim_transition:hover {
+            width: 150px;
+            height: 105px;
+            -webkit-transform: rotate(90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="matrixBox" class="anim_transition">css3过度</div>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动画animation</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: red;
+            animation: mysecond 5s;/*创建时需绑定选择器，否则无效果*/
+        }
+
+        /* @keyframes规则，用于创建动画，@keyframes规定某项CSS样式，创建由当前样式逐渐改为新样式的动画。 */
+        @keyframes myfirst{
+            from{
+                background: red;
+            }
+            to{
+                background: yellow;
+            }
+        }
+        @keyframes mysecond{
+            0%{
+                background: red;
+            }
+            25%{
+                background: blue;
+            }
+            50%{
+                background: orange
+            }
+            75%{
+                background: yellow
+            }
+            100%{
+                background: pink;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+        <!-- transition： 强调过渡； 
+        需要触发一个事件，比如鼠标移上去、焦点、点击。
+        
+        animation：多个关键帧，实现自由动画； 
+        不需要触发任何事件也可随时间变化达到一种动画效果； 
+        与transition不同是animation可以通过@keyframe控制当前帧属性，更灵活。 -->
+    <div></div>
+</body>
+
+</html>
