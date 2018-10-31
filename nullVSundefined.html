@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>null与undefined比较</title>
+</head>
+<body>
+    <!-- js数据类型
+    七种数据类型
+    Boolean
+    Null
+    Undefined
+    Number
+    String
+    Symbol (ECMAScript 6 新定义)
+    Object
+
+    基本类型:string,number,boolean,null,undefined 
+    es6中Symbol原始数据类型-->
+    <script>
+        // null 代表一个空对象指针
+        // 设置为null的变量或者对象会被内存收集器回收
+        var obj=null  
+        typeof null  //"object"
+        if(null)//false
+
+        // undefined 当声明了一个变量未初始化时，得到的就是undefined
+        var test  //undefined
+        typeof undefined  //"undefined"
+        if(undefined)//false
+
+
+
+        console.log(null == undefined) //true
+        console.log(null === undefined)//false
+
+        Number(null) //0
+        Number(undefined)//NaN
+    </script>
+</body>
+</html>

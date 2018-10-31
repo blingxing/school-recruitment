@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>元素水平垂直居中</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            position: relative;
+            /* 不定宽高，法一 */
+            /* display: flex;
+            align-items: center;
+            justify-content: center; */
+
+            /* 不定宽高，法三 */
+            /* （会破坏页面整体布局） */
+            display: table;
+        }
+        /* 定宽高 */
+        .fix{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            border: 1px solid #f00;  
+            /* 法一 */
+            /* top: 50%;
+            left: 50%;
+            margin-top:-50px;
+            margin-left: -50px;*/
+
+
+            /* 法二 */
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+
+
+        /* 不定宽高 */
+        
+        .unfix{
+            border: 1px solid #0f0;
+
+            /*法二*/
+            /* position: absolute;
+            top: 50%;
+            left: 50%; */
+            /* css3属性 */
+            /* transform: translate(-50%,-50%); */
+
+            /* 法三 */
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="box">
+        <!-- 一、宽高明确 -->
+        <!-- <div class="fix"></div> -->
+
+        <!-- 一、宽高不明确 -->
+        <div class="unfix">aaaa</div>
+    </div>    
+</body>
+</html>
