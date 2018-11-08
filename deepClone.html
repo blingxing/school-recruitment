@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>深拷贝&&浅拷贝</title>
+</head>
+<body>
+    <script>
+    // 基本数据类型
+    // 栈内存
+    // name   val
+    //   a     1
+    // 当复制b=a时,栈会开辟一个新的内存空间
+    // name   val
+    //   a     1
+    //   b     1
+    // 深拷贝：对象a改变，不会对b造成影响
+
+
+    // 引用数据类型
+    // 名存在栈内存中，值存在堆内存中
+    // 栈内存                         堆内存
+    // name     val                   val
+    //   a     堆地址＝＝＝＝>        [1,2,3,4]
+    // 当b=a时，其实复制的是a的引用地址，而并非堆里面的值
+    // 栈内存                         堆内存
+    // name     val                   val
+    //   a     堆地址＝＝＝＝>           
+    //                             [1,2,3,4]
+    //   b     堆地址＝＝＝＝>
+    // 而当我们a[0]=1时进行数组修改时，由于a与b指向的是同一个地址，所以自然b也受了影响，这就是所谓的浅拷贝了
+    // 那，在堆内存中也开辟一块内存为b存放值，像基本数据类型那样，就可以达到深拷贝
+
+    // 深拷贝实现  深拷贝，是拷贝对象各个层级的属性
+    // 1、封装一个deepClone(obj)方法
+    // function deepClone(obj){
+    //     var objClone=Array.isArray(obj)?[]:{};//复制的值放到objClone
+    //     if(obj&&typeof obj == "object"){
+    //         for(key in obj){
+    //             //如果子对象是引用数据类型，递归复制
+    //             if(obj[key] && typeof obj[key] == "object"){
+    //                 objClone[key] = deepClone(obj[key])
+    //             }else{
+    //                 objClone[key] = obj[key]
+    //             }
+    //         }
+    //     }
+    //     return objClone;
+    // }
+    // var a = [1,2,3,4],
+    //     b = deepClone(a);
+    // a[0]=6;
+    // console.log(a,b);//[6,2,3,4] [1,2,3,4]
+
+    // 2、JSON.stringify+JSON.parse
+    function deepClone(obj){
+        let _obj = JSON.stringify(obj)
+            objClone = JSON.parse(_obj)
+        return objClone
+    }
+
+
+    //3、JQ的extend方法
+    // $.extend( [deep ], target, object1 [, objectN ] )  用于将一个或多个对象的内容合并到目标对象
+
+    // deep表示是否深拷贝，为true为深拷贝，为false，则为浅拷贝
+
+    // target Object类型 目标对象，其他对象的成员属性将被附加到该对象上。
+
+    // object1  objectN可选。 Object类型 第一个以及第N个被合并的对象。 
+    let b=$.extend(true , [] , a)
+    </script>
+    
+</body>
+</html>

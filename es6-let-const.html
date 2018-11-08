@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>let&&const&&var</title>
+</head>
+
+<body>
+    <script>
+        // let const 相同点
+        // 1、块级作用域，只在let,const命令所在代码块内有效
+        // 2、暂时性死区，声明之前调用都会报错
+        // 3、不允许在相同作用域内重复声明
+
+        // 不同点
+        // 1、const 声明的变量必须初始化，在声明的作用域内只读
+
+
+        // let 块级作用域，只在let命令所在代码块内有效
+        var a = [];
+        //for循环还有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域
+        for (var i = 0; i < 10; i++) {
+            a[i] = function () {
+                console.log(i);
+            };
+        }
+        a[6](); // 10
+
+        var a = [];
+        for (let i = 0; i < 10; i++) {
+            a[i] = function () {
+                console.log(i);
+            };
+        }
+        a[6](); // 6
+
+        // 暂时性死区,let声明之前调用都会报错
+        var tmp=2;
+        if(true){
+            console.log(tmp);//referenceError
+            let tmp=1
+        }
+        typeof aa  //"undefined"
+        typeof bb  //referenceError
+        let bb
+
+        //不允许在相同作用域内重复声明
+        let cc=0
+        var cc=1//报错
+
+        function func(arg){
+            let arg=3
+        }
+        func()//报错
+        
+
+        //const 声明的变量必须初始化，在声明的作用域内不可修改
+
+
+        
+    </script>
+</body>
+
+</html>
