@@ -57,13 +57,14 @@
 
 
         // 但低版本浏览器没有bind
-        Function.prototype.bind = function (obj) {
+        Function.prototype.abind = function (obj) {
             var _self = this,
                 args = arguments;
             return function () {
                 _self.apply(obj, Array.prototype.slice.call(args, 1));
             }
         }
+        bind(co,arg)
     </script>
 
 </body>

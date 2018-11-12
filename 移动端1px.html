@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>解决移动端1px</title>
+    <style>
+        .b1 {
+            width: 100%;          
+            display: table;
+        }
+
+        .item1 {
+            display: table-cell;
+            border: 1px solid #000;
+            float: left;
+        }
+
+        .item2 {
+            border: 1px solid #000;
+            float: left;
+            display: table-cell;
+        }
+
+        /* div::before{
+            content: "";
+            display: block;
+            width: 200%;
+            height: 200%;
+            border: 1px solid #000;
+            transform: scale(0.5);
+            position: absolute;
+             transform-origin: 0 0;
+        } */
+    </style>
+</head>
+
+<body>
+    
+    <div class="b1">
+        <div class="item1">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </div>
+        <div class="item2">
+            <ul>
+
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
