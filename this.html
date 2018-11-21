@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>this指向</title>
+</head>
+<body>
+    <script>
+        // this指向
+        // this永远指向的是最后调用它的对象，也就是看它执行的时候是谁调用的
+        // function fn() {
+        //     var a = 11;
+        //     console.log(this); //window
+        //     console.log(this.a)
+        // };
+        // fn(); //==>window.fn()
+
+
+        // var o = {
+        //     user: "追梦子",
+        //     fn: function () {
+        //         console.log(this.user); //追梦子   this==>o
+        //     }
+        // }
+        // o.fn(); //追梦子
+
+
+
+
+        
+        // 在将fn赋值给变量j的时候并没有执行所以最终指向的是window
+        // var o = {
+        //     a: 10,
+        //     b: {
+        //         a: 12,
+        //         fn: function () {
+        //             console.log(this.a); //undefined
+        //             console.log(this); //window
+        //         }
+        //     }
+        // }
+        // var j = o.b.fn;
+        // j();
+
+
+
+
+        // 如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例
+        // function fn() {
+        //     this.user = '追梦子';
+        //     return {};
+        // }
+        // var a = new fn;
+        // console.log(a); //{}
+        // console.log(a.user)//undefined
+
+        // function fn() {
+        //     this.user = '追梦子';
+        //     return undefined;
+        // }
+        // var a = new fn;
+        // console.log(a); //fn {user: "追梦子"}
+        // console.log(a.user)//追梦子
+
+
+
+
+        // var name = "222";
+        // var a = {
+        //     name: "111",
+        //     say: function () {
+        //         console.log(this)
+        //     }
+        // };
+        // var fun = a.say;
+        // fun(); //222    this==>window
+        // a.say(); //111  this==>a
+        // var b = {
+        //     name: "333",
+        //     say: function (fun) {
+        //         fun() //把window下的a.say作为实参传递进去了，取a.say函数体，不等于a.say执行
+        //     }
+        // };
+        // b.say(a.say); //222  this->window
+        // b.say = a.say;
+        // b.say() //333  this->b
+
+
+
+
+        // let a=1;//块级作用域，不会作为window属性
+        // var b=2;
+        // function fn(){
+        //     console.log(this.a)
+        //     console.log(this.b)
+        // }
+        // const obj={
+        //     a:'ok',
+        //     b:100,
+        //     fn,
+        // }
+        // obj.fn();//ok 100
+        // const f= obj.fn
+        // f()//undefined  2
+
+        // for(var a=1,b=2;a<5,b<4;a++,b++){
+
+        // }
+        // // b加到4终止循环
+        // // a=3，b=4
+        // console.log(++a + b++)//8
+        // var num=1;
+        // function a(fn){
+        //     var num =2 
+        //     fn()
+        // }
+        // function b(){
+        //     console.log(num)
+        // }
+        // a(b)
+        // var obj={
+        //     a:100,
+        //     b:()=>{
+        //         console.log(this)
+        //     }
+        // }
+        // var a=200;
+        // obj.b()
+        function M(){}
+        var m=new M();
+    </script>
+</body>
+</html>
