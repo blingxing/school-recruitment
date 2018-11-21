@@ -25,7 +25,10 @@
         margin: 0 210px;
         background-color: green;
         height: 300px;
+        opacity: 0.5;
     }
+
+
     .position-left{
         width: 200px;
         height: 300px;
@@ -43,22 +46,113 @@
         top: 0;
     }
     .position-middle{
-        margin: 0 210px;
+        /* margin: 0 210px; */
+        position: absolute;
+        left: 200px;
+        right: 200px;
         background-color: green;
         height: 300px;
+        opacity: 0.5;
+    }
+    /* div{
+        background: yellow;
+        height: 100px;
+    } */
+
+    /* flex布局 */
+    .flex{
+        display: flex;
+    }
+    .flex-left{
+        width: 200px;
+        height: 300px;
+        background-color: red;
+    }
+    .flex-right{
+        width: 200px;
+        height: 300px;
+        background-color: blue;
+    }
+    .flex-middle{
+        flex:1;/*占据剩余空间*/
+        background-color: green;
+        height: 300px;
+        opacity: 0.5;
     }
 
+    /* 表格布局 */
+    .table{
+        width: 100%;
+        display: table;
+        height: 300px;
+    }
+    .table-left{
+        display:table-cell;
+        width: 200px;
+        background-color: red;
+    }
+    .table-right{
+        display:table-cell;
+        width: 200px;
+        background-color: blue;
+    }
+    .table-middle{
+        display:table-cell;
+        background-color: green;
+        opacity: 0.5;
+    }
+
+
+    /* 网格布局 */
+    .grid{
+        display: grid;
+        width: 100%;
+        grid-template-rows: 300px;
+        grid-template-columns: 200px auto 200px
+    }
+    .grid-left{
+        background-color: red;
+    }
+    .grid-right{
+        background-color: blue;
+    }
+    .grid-middle{
+        background-color: green;
+    }
     </style>
 </head>
 <body>
     <!-- 浮动实现 -->
-    <div class="float-left">左边</div>
-    <!-- <div class="float-right">右边</div> -->
-    <div class="float-middle">中间</div>
+    <!-- 块状元素水平上按它的内容自动填满整行 -->
+    <!-- <div class="float-left">左边</div>
+    <div class="float-right">右边</div>
+    <div class="float-middle">中间</div> -->
 
     <!-- 绝对定位实现 -->
-    <div class="left">左边</div>
-    <div class="middle">中间</div>
-    <div class="right">右边</div>
+    <!-- <div class="position-left">左边</div>
+    <div class="position-middle">中间</div>
+    <div class="position-right">右边</div> -->
+
+    <!-- flexbox布局 -->
+    <!-- <div class="flex">
+        <div class="flex-left">左边</div>
+        <div class="flex-middle">中间</div>
+        <div class="flex-right">右边</div>
+    </div> -->
+
+    <!-- 表格布局 -->
+    <!-- <div class="table">
+        <div class="table-left">左边</div>
+        <div class="table-middle">中间</div>
+        <div class="table-right">右边</div>
+    </div> -->
+
+
+    <!-- 网格布局 -->
+    <div class="grid">
+        <div class="grid-left">左边</div>
+        <div class="grid-middle">中间</div>
+        <div class="grid-right">右边</div>
+    </div>
 </body>
 </html>
