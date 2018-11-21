@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='outer' style='margin: 100px 0 0 100px; width: 200px;height: 200px; background: red;'>
+        <div id="inner" style='margin-left:20px; width: 50px;height:50px; background: green;'></div>
+        <a href="http://www.baidu.com" id="navigate">阻止默认事件</a>
+    </div>
+    <script>
+        var click = document.getElementById('inner');
+        var clickouter = document.getElementById('outer');
+
+        // click.addEventListener('click', function () {
+        //     alert('inner show');
+        // }, true);
+        // click.addEventListener('click', function () {
+        //     alert('outer show');
+        // }, false);
+        //inner outer   
+
+
+        // click.addEventListener('click', function () {
+        //     alert('inner show');
+        // }, true);
+        // clickouter.addEventListener('click', function () {
+        //     alert('outer show');
+        // }, true);
+        //outer inner
+
+
+        // click.addEventListener('click', function () {
+        //     alert('inner show');
+        // }, false);
+        // clickouter.addEventListener('click', function () {
+        //     alert('outer show');
+        // }, true);
+        //outer inner
+
+        // click.addEventListener('click', function () {
+        //     alert('inner show');
+        // }, false);
+        // clickouter.addEventListener('click', function () {
+        //     alert('outer show');
+        // }, false);
+        //inner outer
+
+
+        // 阻止默认事件
+        // var navigate=document.getElementById("navigate")
+        // navigate.addEventListener('click',function(){
+        //     event.preventDefault()           
+        //     console.log("a")
+        //     console.log(event.currentTarget.href)
+        // },false)
+        //事件优先级
+        // navigate.addEventListener('click',function(){
+        //     event.preventDefault()
+        //     event.stopImmediatePropagation()
+        //     console.log("b")
+        // },false)
+        // navigate.addEventListener('click',function(){
+        //     event.preventDefault()
+        //     console.log("c")
+        // },false)
+
+
+
+        //自定义属性
+        var eve=new Event('custome')
+        navigate.addEventListener('custome',function(){console.log("event",event)})
+        navigate.dispatchEvent(eve)
+
+        var eveN=new CustomEvent('newCustome',{bubbles:true})
+        navigate.addEventListener('newCustome',function(){console.log("CustomEvent",event)})
+        navigate.dispatchEvent(eveN)
+    </script>
+</body>
+
+</html>

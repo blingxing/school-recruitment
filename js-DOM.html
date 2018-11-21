@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM</title>
+    <style>
+        .box{
+            width:100px;
+            height:100px;
+            border:1px solid #f00;
+        }
+    </style>
+</head>
+<body onload="checkCookies(this)"><!--onload 页面完成加载触发-->
+    <!-- HTML 事件的例子：
+
+        当用户点击鼠标时
+        当网页已加载时  onLoad="[function]()"
+        当图像已加载时
+        当鼠标移动到元素上时
+        当输入字段被改变时
+        当提交 HTML 表单时
+        当用户触发按键时 
+    -->
+
+    
+    <!-- 当输入字段被改变时 -->
+    输入你的名字: <input id="changeValue" type="text" id="fname" onchange="myonchangeFun(this)">
+    <p>当你离开输入框后，函数将被触发，将小写字母转为大写字母。</p>
+
+    <!-- 鼠标入至，移出 -->
+    <div class="box" onmouseover="mOver(this)" onmouseout="mOut(this)"></div>
+
+    <!-- 鼠标点击事件 -->
+    <div onmousedown="mDown()" onmouseup="mUp()"></div>
+    <h1 onclick="this.innerHTML='Ooops!'">点击文本!</h1> 
+
+    <!-- 获得焦点 -->
+    输入你的名字: <input id="getFocus" type="text" onfocus="myonFocusFun(this)">
+    <p>当输入框获取焦点时，修改背景色（background-color属性） 将被触发。</p>
+
+
+
+
+
+
+    <!-- HTML DOM EventListener -->
+
+
+
+
+
+
+    <script>
+        function checkCookies(obj){
+            
+        }
+        function myonchangeFun(){
+            
+            var inputNode=document.getElementsByTagName("input")[0];
+            inputNode.value=inputNode.value.toUpperCase();
+        }
+        function mOver(obj){
+            
+            obj.innerHTML="mouse over"
+        }
+        function mOut(obj){
+            obj.innerHTML="mouse out"
+        }
+    </script>
+</body>
+</html>
