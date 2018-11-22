@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>safari中3D变换忽略z-index层级问题</title>
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        /* 方法1:父级，任意父级，非body级别，设置overflow:hidden可恢复和其他浏览器一样的渲染。 */
+        .container{
+            /* overflow: hidden; */
+        }
+        .mask{
+            width: 100%;
+            height: 100%;
+            background: #000;
+            opacity: 0.4;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 99;
+            /* 方法2 ：要想把下面3D变换的元素彻底遮住，只要设置一个足够大的translateZ值*/
+            transform: translateZ(100px)
+        }
+        img{
+            width: 100px;
+            height: 100px;
+            transform: rotateY(30deg);
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+        <!-- Safari浏览器却自己任性了一把。直接把z-index:99给无视了，对无视了，诸位也不要怀疑是不是99还不够大，就算是9999999这是这般渲染，因为Safari是忽略z-index，而不是IE6,IE7那种z-index计算bug。 -->
+
+
+    <div class="container">
+    <img src="http://img03.tooopen.com/uploadfile/downs/images/20110714/sy_20110714135215645030.jpg">
+    <div class="mask"></div>
+</div>
+</body>
+</html>
