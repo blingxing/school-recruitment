@@ -1,158 +1,195 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>三栏布局</title>
     <style type="text/css">
-    *{
-        margin: 0;
-        padding: 0;
-    }
-    .float-left{
-        width: 200px;
-        height: 300px;
-        background-color: red;
-        float: left;
-    }
-    .float-right{
-        width: 200px;
-        height: 300px;
-        background-color: blue;
-        float: right;
-    }
-    .float-middle{
-        margin: 0 210px;
-        background-color: green;
-        height: 300px;
-        opacity: 0.5;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,body {
+            padding: 100px 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .float-left {
+            width: 200px;
+            height: 100px;
+            background-color: red;
+            float: left;
+        }
+
+        .float-right {
+            width: 200px;
+            height: 100px;
+            background-color: blue;
+            float: right;
+        }
+
+        .float-middle {
+            /* margin: 0 210px; */
+            background-color: green;
+            height: 100px;
+            opacity: 0.5;
+        }
 
 
-    .position-left{
-        width: 200px;
-        height: 300px;
-        background-color: red;
-        position: absolute;
-        left: 0;
-        top: 0;
-    }
-    .position-right{
-        width: 200px;
-        height: 300px;
-        background-color: blue;
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-    .position-middle{
-        /* margin: 0 210px; */
-        position: absolute;
-        left: 200px;
-        right: 200px;
-        background-color: green;
-        height: 300px;
-        opacity: 0.5;
-    }
-    /* div{
+        .position-left {
+            width: 200px;
+            height: 300px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .position-right {
+            width: 200px;
+            height: 300px;
+            background-color: blue;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .position-middle {
+            /* margin: 0 210px; */
+            position: absolute;
+            left: 200px;
+            right: 200px;
+            background-color: green;
+            height: 300px;
+            opacity: 0.5;
+        }
+
+        /* div{
         background: yellow;
         height: 100px;
     } */
 
-    /* flex布局 */
-    .flex{
-        display: flex;
-    }
-    .flex-left{
-        width: 200px;
-        height: 300px;
-        background-color: red;
-    }
-    .flex-right{
-        width: 200px;
-        height: 300px;
-        background-color: blue;
-    }
-    .flex-middle{
-        flex:1;/*占据剩余空间*/
-        background-color: green;
-        height: 300px;
-        opacity: 0.5;
-    }
+        /* flex布局 */
+        .flex {
+            display: flex;
+        }
 
-    /* 表格布局 */
-    .table{
-        width: 100%;
-        display: table;
-        height: 300px;
-    }
-    .table-left{
-        display:table-cell;
-        width: 200px;
-        background-color: red;
-    }
-    .table-right{
-        display:table-cell;
-        width: 200px;
-        background-color: blue;
-    }
-    .table-middle{
-        display:table-cell;
-        background-color: green;
-        opacity: 0.5;
-    }
+        .flex-left {
+            width: 200px;
+            height: 300px;
+            background-color: red;
+        }
+
+        .flex-right {
+            width: 200px;
+            height: 300px;
+            background-color: blue;
+        }
+
+        .flex-middle {
+            flex: 1;
+            /*占据剩余空间*/
+            background-color: green;
+            height: 300px;
+            opacity: 0.5;
+        }
+
+        /* 表格布局 */
+        .table {
+            width: 100%;
+            display: table;
+            height: 100px;
+        }
+
+        .table-left {
+            display: table-cell;
+            width: 200px;
+            background-color: red;
+        }
+
+        .table-right {
+            display: table-cell;
+            width: 200px;
+            background-color: blue;
+        }
+
+        .table-middle {
+            display: table-cell;
+            background-color: green;
+            opacity: 0.5;
+        }
 
 
-    /* 网格布局 */
-    .grid{
-        display: grid;
-        width: 100%;
-        grid-template-rows: 300px;
-        grid-template-columns: 200px auto 200px
-    }
-    .grid-left{
-        background-color: red;
-    }
-    .grid-right{
-        background-color: blue;
-    }
-    .grid-middle{
-        background-color: green;
-    }
+        /* 网格布局 */
+        .grid {
+            display: grid;
+            width: 100%;
+            grid-template-rows: 300px;
+            grid-template-columns: 200px auto 200px
+        }
+
+        .grid-left {
+            background-color: red;
+        }
+
+        .grid-right {
+            background-color: blue;
+        }
+
+        .grid-middle {
+            background-color: green;
+        }
     </style>
 </head>
+
 <body>
-    <!-- 浮动实现 -->
+    <!-- 一、浮动实现 -->
     <!-- 块状元素水平上按它的内容自动填满整行 -->
     <!-- <div class="float-left">左边</div>
     <div class="float-right">右边</div>
     <div class="float-middle">中间</div> -->
+    <!-- 缺点：浮动元素脱离文档流老，要做到清除浮动-->
+    <!-- 优点：兼容性好 -->
 
-    <!-- 绝对定位实现 -->
+    <!-- 二、绝对定位实现 -->
     <!-- <div class="position-left">左边</div>
     <div class="position-middle">中间</div>
     <div class="position-right">右边</div> -->
+    <!-- 缺点：脱离文档流，影响子元素 -->
+    <!-- 优点：便捷 -->
 
-    <!-- flexbox布局 -->
+    <!-- 三、flexbox布局 -->
     <!-- <div class="flex">
         <div class="flex-left">左边</div>
         <div class="flex-middle">中间</div>
         <div class="flex-right">右边</div>
     </div> -->
+    <!-- 缺点：IE8+ -->
+    <!-- 优点：解决了上面两种方法的问题 -->
 
-    <!-- 表格布局 -->
+    <!-- 四、表格布局 -->
     <!-- <div class="table">
-        <div class="table-left">左边</div>
+        <div class="table-left">左边<p>dddd</p>
+            <p>dddd</p>
+            <p>dddd</p>
+            <p>dddd</p><p>dddd</p></div>
         <div class="table-middle">中间</div>
         <div class="table-right">右边</div>
     </div> -->
+    <!-- 缺点：一个单元格高度超出，其他单元格高度跟着变高 -->
+    <!-- 优点：兼容性好 -->
 
 
-    <!-- 网格布局 -->
-    <div class="grid">
+
+    <!-- 五、网格布局 -->
+    <!-- <div class="grid">
         <div class="grid-left">左边</div>
         <div class="grid-middle">中间</div>
         <div class="grid-right">右边</div>
-    </div>
+    </div> -->
 </body>
+
 </html>
