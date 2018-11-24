@@ -33,6 +33,25 @@
     // 而当我们a[0]=1时进行数组修改时，由于a与b指向的是同一个地址，所以自然b也受了影响，这就是所谓的浅拷贝了
     // 那，在堆内存中也开辟一块内存为b存放值，像基本数据类型那样，就可以达到深拷贝
 
+
+    // 浅拷贝实现
+    var obj={
+        name:'obj',
+        family:['father','mother']
+    }
+    function shallowClone(o){
+        var obj2={}
+        for(let key in o){
+            if(o.hasOwnProperty(key)){
+                obj2[key] = o[key]
+            }
+        }
+        return obj2
+    }
+    shallowClone(obj)
+
+
+    
     // 深拷贝实现  深拷贝，是拷贝对象各个层级的属性
     // 1、封装一个deepClone(obj)方法
     // function deepClone(obj){
@@ -53,6 +72,7 @@
     //     b = deepClone(a);
     // a[0]=6;
     // console.log(a,b);//[6,2,3,4] [1,2,3,4]
+
 
     // 2、JSON.stringify+JSON.parse
     function deepClone(obj){

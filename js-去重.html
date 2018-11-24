@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组去重</title>
+</head>
+
+<body>
+    <script>
+        var arr = [1, 1, 2,  3, 'a' ,'a', 'b' , 'c']
+        // 法一
+        // 缺点：IE8+,无法区分数据类型
+        function uniq(arr) {
+            var resultArr = []
+            for (var i = 0; i < arr.length; i++)
+                if (resultArr.indexOf(arr[i]) == -1) {
+                    resultArr.push(arr[i])
+                }
+            return resultArr
+        }
+        console.log(11,uniq(arr)) //[1, "1", 2, 3]
+
+        //法二
+        //* 现思路：新建一js对象以及新数组，遍历传入数组时，判断值是否为js对象的键，
+        // * 不是的话给对象新增该键并放入新数组。
+        function uniq2(arr) {
+            var temp = {},
+                result = [],
+                val
+            for (var i = 0; i < arr.length; i++) {
+                val = arr[i]
+                type = typeof val
+                if (!temp[val]) {
+                    temp[val] = type
+                    result.push(val)
+                }
+                // }else if(temp[val].indexOf(type) == -1){
+                //     temp[val] = type;
+                //     result.push(val)
+                // }//判断是否为js对象键时，会自动对传入的键执行“toString()”，* 所以不同的键可能会被误认为一样，例如n[val]-- n[1]、n["1"]；
+            }
+            return result
+        }
+        Array.prototype.unique2 = function () {
+            var res = [];
+            var json = {};
+            for (var i = 0; i < this.length; i++) {
+                if (!json[this[i]]) {
+                    res.push(this[i]);
+                    json[this[i]] = 1;
+                }
+            }
+            return res;
+        }
+        var arr1 = [112, 112, 34, '你好', 112, 112, 34, '你好', 'str', 'str1'];
+        console.log(arr1.unique2());//[112, 34, "你好", "str", "str1"]
+
+        // 法三
+        // 检查原数组中的第i个元素 与 结果数组中的最后一个元素是否相同，因为已经排序，所以重复元素会在相邻位置
+        // 如果不相同，则将该元素存入结果数组中
+        Array.prototype.unique3 = function () {
+            this.sort(function(a,b){return a-b})
+            var result = [this[0]]
+            for(var i=1;i<this.length;i++){
+                if(this[i]!==result[result.length-1]){
+                    result.push(this[i])
+                }
+            }
+            return result
+        }
+    </script>
+</body>
+
+</html>
