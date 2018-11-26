@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文本溢出显示省略号</title>
+    <style>
+        .ellipsis1 {
+            width: 200px;
+            overflow: hidden;
+            white-space: nowrap;/*规定文本不换行*/
+            text-overflow: ellipsis;/*当文本溢出时*/
+        }
+
+        /* 仅webkit内核浏览器 */
+        .ellipsis2 {
+            width: 300px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+        }
+
+        /* ：：after造出一个省略号 */
+        .ellipsis2-1{
+            position: relative;
+            width: 300px;
+            line-height: 20px;
+            height: 60px;
+            overflow: hidden;
+        }
+        .ellipsis2-1::after{
+            content: "...";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 单行文本溢出 -->
+    <p class="ellipsis1">的减肥啦放假的放假斤斤计较斤斤计较斤斤计较斤斤计较斤斤计较</p>
+    <p class="ellipsis2">的减肥啦放假的放假斤斤计较斤斤计较斤斤计较斤斤计较斤斤计较的减肥啦放假的放假斤斤计较斤斤计较斤斤计较斤斤计较斤斤计较</p>
+    <p class="ellipsis2-1">的减肥啦放假的放假斤斤计较斤斤计较斤斤计较斤斤计较斤斤计较的减肥啦放假的放假斤斤计较斤斤计较斤斤计较斤斤计较斤斤计较的减肥啦放假的放假</p>
+</body>
+
+</html>
