@@ -4,7 +4,7 @@
 // 3、事件触发条件
 // 4、事件触发顺序
 
-//创建XMSLHttpRequest对象，并且兼容IE
+//创建XMLHttpRequest对象，并且兼容IE
 function Ajax(type,url,data,success,failed){
     var xhr = XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHttp"),
         type = type.toUpperCase(),
