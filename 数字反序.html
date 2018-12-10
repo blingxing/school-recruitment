@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数字反序</title>
+</head>
+<body>
+    <div>
+        对于一个整数X，定义操作rev(X)为将X按数位翻转过来，并且去除掉前导0。
+        例如:
+        如果 X = 123，则rev(X) = 321
+        如果 X = 100，则rev(X) = 1
+    </div>
+    <script>
+        function rev(m){
+            var t=0;
+            while(m>0){
+                t=parseInt(m%10)+t*10;
+                m=parseInt(m/10);
+            }
+            return t;
+        }
+    </script>
+</body>
+</html>
