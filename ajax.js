@@ -1,5 +1,5 @@
 // 创建AJAX
-// 1、创建XMSLHttpRequest对象
+// 1、创建XMLHttpRequest对象
 // 2、兼容性处理
 // 3、事件触发条件
 // 4、事件触发顺序

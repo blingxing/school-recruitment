@@ -89,8 +89,8 @@ class MyPromise{
         })
     }
     then(fulfilled,rejected){
-        this.fulfilledCallBack.push(fulfilled)
-        this.rejectedCallBack.push(rejected)
+        fulfilled && typeof fulfilled === 'function' && this.fulfilledCallback.push(fulfilled)
+        rejected && typeof rejected === 'function' && this.rejectedCallback.push(rejected)
     }
 }
 var a = new MyPromise((resolve,reject) => {
