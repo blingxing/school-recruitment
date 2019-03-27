@@ -49,7 +49,7 @@ var item3=[1,3,5,3,5]
 // //lastIndexOf() 返回元素最后一次出现的位置，从尾到头检索
 console.log(item3.lastIndexOf(7),item3.lastIndexOf(3),item3)// -1 3 [1,3,5,3,5]
 
-// // 4、slice(start,end) 提取字符串某个部分, -1指最后一个元素，-2指倒数第二个元素
+// // 4、slice(start,end) 提取数组某个部分, -1指最后一个元素，-2指倒数第二个元素
 // var item4=[3,4,5,6,7,9]
 // console.log(item4.slice(2,4),item4.slice(3),item4.slice(-2,0),item4.slice(-2,-1),item4) //[5,6] [6,7,9] [] [7] [ 3, 4, 5, 6, 7, 9 ]
 
