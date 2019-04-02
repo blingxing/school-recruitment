@@ -94,8 +94,9 @@ class MyPromise{
     }
 }
 var a = new MyPromise((resolve,reject) => {
-    //if success
-    resolve()
+    if (/* 异步操作成功 */){
+        resolve()
+    }
     //if fail
     reject()
 })
@@ -104,3 +105,29 @@ a.then((res) => {
 },(err) => {
     console.log("fail")
 })
+
+
+
+
+// promise 异步加载图片
+var loadImage = function(url){
+    return Promise((resolve,reject)=>{
+        let image = new Image()
+        image.onload = function(){
+            resolve()
+        }
+        image.onerror = function(){
+            reject()
+        }
+        image.src = url
+    })
+}
+
+
+function obj(name){
+    return name?{name:name}:1
+}
+obj.prototype.name="name2"
+var a=obj("name1")
+var b = new obj
+console.log(b.name)
