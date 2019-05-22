@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="father">
+        <li data-id="0" data-price-info="3">1</li>
+        <li data-id="1">2</li>
+        <li data-id="2">3</li>
+        <li data-id="3">4</li>
+        <li data-id="4">5</li>
+    </ul>
+    <script>
+       var father =  document.getElementById("father")
+       father.addEventListener("click",(e)=>{
+           console.log(e.target.dataset.id)
+           console.log(111,e.currentTarget.innerHTML)
+       })
+    </script>
+</body>
+</html>

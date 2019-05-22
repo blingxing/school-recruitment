@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .right {
+            /* position: absolute; */
+            /*脱离原来位置，让黑块上来*/
+            background-color: pink;
+            width: 100px;
+            height: 100px;
+            /* right: 0; */
+            /*首先将粉色区域定位到最右边*/
+            float:right;
+            opacity: 0.5;
+        }
+
+        .left {
+            background-color: black;
+            height: 100px;
+            margin-right: 100px;
+            /*然后让黑色区域让出来这段距离*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout">
+        <div class="right"></div>
+        <div class="left"></div>
+    </div>
+</body>
+
+</html>

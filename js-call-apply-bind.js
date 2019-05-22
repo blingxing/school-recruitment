@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>call&&apply&&bind</title>
-</head>
-
-<body>
-    <script>
-        //注意如果call和apply的第一个参数写的是null，那么this指向的是window对象
+//注意如果call和apply的第一个参数写的是null，那么this指向的是window对象
         //1、call
         var a = {
             user: "追梦子",
@@ -51,7 +39,7 @@
         // }
         // var b = a.fn;
         // // 并且参数可以执行的时候再次添加
-        // var c = b.bind(a, 2);
+        // var c =b.bind(a, 2);
         // console.log(c) //f(){ console.log(this.user);}
         // c(4, 6)
 
@@ -64,9 +52,4 @@
                 _self.apply(obj, Array.prototype.slice.call(args, 1));
             }
         }
-        bind(co,arg)
-    </script>
-
-</body>
-
-</html>
+        abind(co,arg)

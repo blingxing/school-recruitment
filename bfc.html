@@ -9,8 +9,9 @@
     <style>
         /* 自适应两栏布局 */
         .box {
-            width: 300px;
-            /* border: 1px solid #000; */
+            /* width: 500px; */
+            height:150px;
+            border: 1px solid #000;
         }
 
         .aside {
@@ -18,12 +19,15 @@
             width: 100px;
             height: 150px;
             background: #f66;
+            opacity: 0.5;
         }
 
         .main {
-            background: #fcc;
+            background: #0f0;
+            height:150px;
             /* 若不把main变成BFC块，每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。 */
-            overflow: hidden;
+            /* overflow: hidden; */
+            /* float: left;  */ /*不能用，自身float又带有特性，如将元素包裹化了，破坏了块级元素的流体*/
             /* 但BFC的区域不会与float box重叠。 */
         }
         /* 三栏 */
@@ -43,13 +47,14 @@
         .par {
             border: 5px solid #fcc;
             width: 300px;
-            overflow: hidden;/*计算BFC的高度时，浮动元素也参与计算*/
+            overflow: hidden;/* 计算BFC的高度时，浮动元素也参与计算 */
         }
 
         .child {
             border: 5px solid #f66;
             width: 100px;
             height: 100px;
+            margin-left:10px;
             float: left;
         }
 
@@ -72,20 +77,20 @@
         }
 
         .wrap{
-            overflow: hidden;
+            /* overflow: hidden; */
         }
     </style>
 </head>
 
 <body>
     <!-- 一、自适应两栏布局 -->
-    <div class="box">
+    <!-- <div class="box">
         <div class="aside"></div>
         <div class="main"></div>
-    </div>
+    </div> -->
 
     
-    <!-- <div class="container">
+    <!-- <div class="box">
         <div class="column">column 1</div>
         <div class="column">column 2</div>
         <div class="last">column 3 : aaaaaaabbbbbbbbbbbbbbbbbbbbccccccccccccccccccdddddddddddddddddd</div>
@@ -99,14 +104,14 @@
 
 
     <!-- 三、防止垂直 margin 重叠 -->
-    <!-- <div class="container"> -->
-        <!-- <p>Sibling 1</p> -->
+    <div class="container">
+        <p>Sibling 1</p>
         <!-- BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此 -->
-        <!-- <div class="wrap">
+        <div class="wrap">
             <p>Sibling 2</p>
         </div>
         
-    </div> -->
+    </div>
 
 
 
