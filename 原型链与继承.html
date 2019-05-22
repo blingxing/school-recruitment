@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型链与继承</title>
+</head>
+<body>
+    <script>
+        // 实现继承的方法1
+        function Father(){
+            this.time=["1:00"]
+        }
+        Father.prototype.name='father'
+        function Child(){
+            Father.call(this)
+            this.age=18
+        }
+        Child.prototype.name='child'
+        Child.prototype=Father.prototype
+        
+        // Child.prototype.constructor=Child
+        var f1=new Child()
+        f1.time.push("2:00")
+        var f2=new Child()
+        // 法2
+        function Father1(){}
+        function Child1(){}
+        var f3=new Child()
+        var f4=new Child()
+        Child1.prototype=Object.create(Father1.prototype)
+        Child1.prototype.constructor=Child1
+    </script>
+</body>
+</html>

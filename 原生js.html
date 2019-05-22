@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        ul li {
+            list-style: none;
+            display: block;
+            text-align: left;
+        }
+
+        ul li span {
+            display: inline-block;
+            margin-top: 5px;
+            margin-right: 35px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 此处为ul动态添加li元素 -->
+    <ul id="father">
+    </ul>
+    <script type="text/javascript">
+        var father = document.getElementById("father")
+        for (var i = 0; i < 5; i++) {
+            var child = document.createElement("li");
+            child.innerHTML = i;
+            father.appendChild(child)
+        }
+        father.addEventListener("click",function(e){
+            // console.log(e.target.innerHTML);
+            if(e.target.nodeName.toLowerCase()==='li'){
+                e.target.innerHTML++
+
+            }
+        })
+    </script>
+</body>
+
+</html>
